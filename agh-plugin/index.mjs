@@ -140,8 +140,18 @@ function pythonBin() {
   if (process.env.FLOODKIT_PYTHON) return process.env.FLOODKIT_PYTHON
   const cfg = localConfig()
   if (cfg.python) return cfg.python
-  const venv = path.join(projectRoot(), '.venv', 'Scripts', 'python.exe')
-  if (existsSync(venv)) return venv
+  // A venv puts its interpreter in Scripts\ on Windows and in bin/ everywhere else.
+  // Probing only the Windows path meant a macOS or Linux collaborator silently fell
+  // through to whatever `python` happened to be on PATH — typically one without
+  // numpy or rasterio — and the failure surfaced as an import error from deep inside
+  // a tool call rather than as "your interpreter is wrong".
+  for (const candidate of [
+    path.join(projectRoot(), '.venv', 'Scripts', 'python.exe'),
+    path.join(projectRoot(), '.venv', 'bin', 'python'),
+    path.join(projectRoot(), '.venv', 'bin', 'python3'),
+  ]) {
+    if (existsSync(candidate)) return candidate
+  }
   return 'python'
 }
 

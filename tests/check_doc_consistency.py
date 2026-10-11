@@ -57,6 +57,8 @@ STALE = (
     "28/28",
     "29/29",
     "30/30",
+    "契约测试 33 项",
+    "回归测试 28 条",
     "33/33",
     "19/19",
     "11 个 bug",
@@ -120,6 +122,7 @@ def suite_size() -> int:
 
 
 def main() -> int:
+    failures = []
     numbers = headline_numbers()
     must_appear = [
         str(numbers["underpass_flooded"]),
@@ -131,6 +134,30 @@ def main() -> int:
         str(numbers["buildings_affected"]),
         str(numbers["study_area_km2"]),
     ]
+
+    # The README's file tree quotes a file count per directory. Those counts drifted
+    # three times during development and were caught by hand each time; a number that
+    # can be counted should be counted. `docs/` uses 份 and the rest 个文件, so the
+    # pattern accepts either unit.
+    with open(os.path.join(ROOT, "README.md"), encoding="utf-8") as fh:
+        readme_text = fh.read()
+    tree_problems = []
+    for rel in ("floodkit", "agh-plugin", "tests", "scripts", "docs"):
+        actual = 0
+        for base, dirs, files in os.walk(os.path.join(ROOT, rel)):
+            dirs[:] = [d for d in dirs if d != "__pycache__"]
+            actual += len(files)
+        pattern = re.compile(r"(?m)^%s/\s+.*?（(\d+)\s*(?:个文件|份)" % re.escape(rel))
+        found = pattern.search(readme_text)
+        if not found:
+            tree_problems.append("%s/ has no file count in the README tree" % rel)
+        elif int(found.group(1)) != actual:
+            tree_problems.append("%s/: README says %s, tree has %d"
+                                 % (rel, found.group(1), actual))
+    for problem in tree_problems:
+        print("   tree: %s" % problem)
+    if tree_problems:
+        failures.extend(tree_problems)
 
     size = suite_size()
     print("regression suite: %d tests, so wherever a doc quotes the suite size it must "
@@ -148,6 +175,9 @@ def main() -> int:
     for key, value in numbers.items():
         print("   %-22s %s" % (key, value))
     print()
+
+    with open(os.path.join(ROOT, "README.md"), encoding="utf-8") as fh:
+        readme_text = fh.read()
 
     for rel in DOCS:
         path = os.path.join(ROOT, rel.replace("/", os.sep))

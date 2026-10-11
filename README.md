@@ -380,7 +380,7 @@ python -X utf8 scripts\make_rainfall_animation.py
 **六个文件夹，按"做什么的"分组。** 想读代码的话，按 ① → ② 的顺序看。
 
 ```
-floodkit/            ① 核心计算代码（Python，纯计算，无界面依赖）
+floodkit/            ① 核心计算代码（15 个文件，Python，纯计算，无界面依赖）
   dem_source.py      DEM 瓦片发现、下载与缓存
   places.py          地名 → 研究区范围（只认南京，认不出不猜）
   weather.py         预报降雨（多模式区间 + 15 天范围限制）
@@ -399,11 +399,11 @@ floodkit/            ① 核心计算代码（Python，纯计算，无界面依�
 agh-plugin/          ② AGH 工具插件（4 个文件）
   index.mjs          向 AGH 注册 8 个工具
   verify-core.mjs    JavaScript 独立实现的数值内核（跨语言验证）
-  test-plugin.mjs    契约测试 33 项（含 2 道负向对照）
+  test-plugin.mjs    契约测试 42 项（含 2 道负向对照）
   package.json       插件清单
 
-tests/               ③ 测试与自检（12 个文件）
-  test_floodkit.py           回归测试 28 条
+tests/               ③ 测试与自检（13 个文件）
+  test_floodkit.py           回归测试 31 条
   mutation_check.py          变异测试：故意改坏源码，看测试会不会抓
   rainfall_sweep.py          降雨强度扫描（50–300 mm）
   check_doc_consistency.py   文档数字与报告是否一致
@@ -416,7 +416,7 @@ tests/               ③ 测试与自检（12 个文件）
   rehearse-agent-path.mjs    演示彩排（不调模型，直接驱动插件）
   make_verify_fixture.py     生成跨语言验证用的夹具
 
-scripts/             ④ 环境与工具脚本（13 个文件）
+scripts/             ④ 环境与工具脚本（14 个文件）
   setup.ps1                  一键环境准备（找 Python、装依赖、写配置）
   package-submission.ps1     打包成提交 ZIP
   install-plugin.mjs         同步插件到 AGH 并安装
@@ -431,7 +431,7 @@ scripts/             ④ 环境与工具脚本（13 个文件）
   make_bad_dem.py            生成故意做坏的 DEM（异常处理演示用）
   hackathon_text.txt         比赛通知的文字提取
 
-docs/                ⑤ 文档（11 份，按读者分：评委 / 自己 / 填表）
+docs/                ⑤ 文档（12 份，按读者分：评委 / 自己 / 填表）
 data/                ⑥ 数据与产物
   runs/              每次运行的产物（报告 JSON/MD、深度栅格、地图、点位图、交互式 HTML）
   evidence/samples/  三类测试样例的完整证据包

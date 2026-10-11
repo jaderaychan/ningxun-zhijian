@@ -1,0 +1,30 @@
+# Runtime dependencies for the floodkit scientific core.
+#
+# This is the list scripts/setup.ps1 installs, written down where every platform can
+# read it. It was previously only inside that PowerShell script, which meant a
+# collaborator on macOS or Linux had nothing to follow.
+#
+#     python -m pip install -r requirements.txt
+#
+# Python 3.12 is what the project is developed and verified against. One reported
+# number depends on it: the water-balance residual of 2.44e-16 comes from CPython
+# 3.12's compensated summation, and an older interpreter prints a slightly different
+# last digit. Anything from 3.10 should run; 3.12 reproduces the documented figures.
+#
+# Versions are floors rather than pins. This is a research artifact, not a deployed
+# service: pinning would break the install on platforms where the pinned wheel does
+# not exist, and the test suite — not a lockfile — is what checks the numbers.
+
+numpy>=1.24
+scipy>=1.10
+matplotlib>=3.7
+rasterio>=1.3
+
+# Not required to run anything, but two things use it if present:
+#   * generate_gif in scripts/make_rainfall_animation.py writes the animated sweep
+#     (the MP4 path shells out to ffmpeg instead);
+#   * scripts/rebuild_outputs.py imports it indirectly through the figure scripts.
+pillow>=10.0
+
+# Not required at all unless you run the AGH tool-plugin rehearsal
+# (node tests/rehearse-agent-path.mjs), which needs Node.js 20+, not Agnes.
