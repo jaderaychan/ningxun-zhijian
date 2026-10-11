@@ -1,0 +1,77 @@
+{
+  "bounds": [
+    118.72,
+    32.02,
+    118.82,
+    32.1
+  ],
+  "scenarios": [
+    {
+      "rain_mm": 50.0,
+      "outcome": "degraded",
+      "d01": 5.1278962959150576e-15,
+      "d01b": 0.0,
+      "ponded_km2": 4.6838044064380036,
+      "spilled_m3": 0.0,
+      "overflowing_basins": 0,
+      "basin_gap_m3": 1.1281287015663111e-10,
+      "max_depth_m": 2.0598432901567634,
+      "d04_change": 0.5036250210757038
+    },
+    {
+      "rain_mm": 100.0,
+      "outcome": "ok",
+      "d01": 1.18511381061148e-14,
+      "d01b": 1.3225785651437627e-16,
+      "ponded_km2": 7.713154213063561,
+      "spilled_m3": 0.0,
+      "overflowing_basins": 0,
+      "basin_gap_m3": -6.554046194651164e-11,
+      "max_depth_m": 4.076108120076451,
+      "d04_change": 0.28350568239991814
+    },
+    {
+      "rain_mm": 150.0,
+      "outcome": "ok",
+      "d01": 3.175497261766658e-14,
+      "d01b": 1.5082419314554957e-16,
+      "ponded_km2": 10.042026105591916,
+      "spilled_m3": 2278.4418775669037,
+      "overflowing_basins": 8,
+      "basin_gap_m3": -1.0800249583553523e-11,
+      "max_depth_m": 4.794053092199483,
+      "d04_change": 0.21240956275558354
+    },
+    {
+      "rain_mm": 200.0,
+      "outcome": "ok",
+      "d01": 2.3588322961209266e-14,
+      "d01b": 0.0,
+      "ponded_km2": 11.936554308432036,
+      "spilled_m3": 14900.931465805714,
+      "overflowing_basins": 20,
+      "basin_gap_m3": -2.1373125491663814e-11,
+      "max_depth_m": 5.75999754948772,
+      "d04_change": 0.16718491564670848
+    },
+    {
+      "rain_mm": 300.0,
+      "outcome": "ok",
+      "d01": 2.8108468585015875e-14,
+      "d01b": 2.575504601301603e-16,
+      "ponded_km2": 14.710825911840688,
+      "spilled_m3": 92003.19961199377,
+      "overflowing_basins": 70,
+      "basin_gap_m3": -2.4203927750932053e-10,
+      "max_depth_m": 9.244324284176932,
+      "d04_change": 0.10596950826712472
+    }
+  ],
+  "checks": {
+    "every_scenario_completed": true,
+    "water_balance_holds_at_every_intensity": true,
+    "ponded_area_monotone_in_rainfall": true,
+    "spill_branch_exercised": true
+  },
+  "note": "Monotonicity in rainfall is the structural check: more rain can never pond less water. Whether any basin spills is reported rather than asserted, because a sweep that never overflows leaves that branch untested."
+}

@@ -1,0 +1,41 @@
+# NOTICE
+
+宁讯智鉴 —— 城市内涝「感知—建模—验证」自主智能体
+2026 年江苏省 AI+ 科学与工程创新实践黑客松（高校组 · 本科生组 · 参赛编号 U247）
+
+Copyright 2026 宁讯智鉴。本项目以 Apache License 2.0 授权，全文见 `LICENSE`。
+
+---
+
+## 第三方数据与材料的署名要求
+
+本项目的分析结果由下列公开数据产品算出。它们的许可都要求署名；这里集中列出，
+`README.md` 的「数据来源与许可」一节有更详细的用途说明。
+
+| 数据 / 材料 | 提供方 | 许可 | 本项目如何使用 |
+|---|---|---|---|
+| Copernicus DEM GLO-30 | ESA / Copernicus Programme | Copernicus 数据政策（免费、需署名） | 地形高程；填洼、汇流与洼地识别的基础 |
+| ESA WorldCover 10 m 2021 | ESA | CC BY 4.0 | 土地覆盖 → SCS 复合曲线数；永久水体掩膜 |
+| OpenStreetMap（Overpass API 提取） | © OpenStreetMap contributors | **ODbL 1.0** | 道路、建筑、下穿隧道、地铁口、学校、医院等承灾体 |
+| Open-Meteo 预报接口 | Open-Meteo | CC BY 4.0（接口数据） | `flood_weather` 的多模式降雨预报区间 |
+| 南京市易积水路段清单（2015） | 江苏省公安厅（公开发布） | 公开信息 | D02 外部验证与负结果分析中的官方点位 |
+
+> **ODbL 的派生数据义务**：`data/runs/*/*_exposure.geojson` 与 `*_ponding.geojson` 含
+> 由 OpenStreetMap 派生的几何。**若再分发这些文件，须一并遵守 ODbL**（署名 + 相同方式共享）。
+> 本仓库的 `LICENSE`（Apache-2.0）适用于本项目自己的代码与文档，不改变这些数据的许可。
+
+## 第三方软件
+
+本项目**不内嵌**任何第三方源码。以下依赖由使用者自行安装（见 `scripts/setup.ps1`）：
+
+| 依赖 | 许可 | 用途 |
+|---|---|---|
+| [Agnes Harness](https://github.com/)（AGH） | 见其仓库 | 智能体运行底座；`setup.ps1` 克隆，**不随本仓库分发** |
+| NumPy / SciPy | BSD-3-Clause | 数值计算 |
+| rasterio（GDAL） | BSD-3-Clause | 栅格读写与重投影 |
+| Matplotlib | PSF-based | 出图（PDF/SVG 已内嵌字体程序） |
+| Pillow | MIT-CMU | 图像处理与 GIF 合成 |
+| fontTools | MIT | 字形可用性检查（避免渲染成方框） |
+
+`data/osm/`、`data/dem/`、`data/landcover/`、`data/weather/` 是**原始数据缓存**，
+体积大且可由脚本重新下载，**未纳入版本控制**（见 `.gitignore`）。

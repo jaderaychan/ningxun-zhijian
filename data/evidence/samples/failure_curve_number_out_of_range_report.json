@@ -1,0 +1,42 @@
+{
+  "status": "rejected",
+  "quality": {
+    "status": "rejected",
+    "issues": [
+      {
+        "code": "DEM_HOLES",
+        "severity": "warning",
+        "message": "DEM has 3.08% missing cells (largest contiguous hole: 919 cells); holes are treated as open drains.",
+        "detail": {
+          "missing_fraction": 0.030832899388823415,
+          "missing_cells": 3375,
+          "largest_hole_cells": 919
+        }
+      },
+      {
+        "code": "CN_OUT_OF_RANGE",
+        "severity": "fatal",
+        "message": "Curve numbers outside 30..100 are not physically meaningful (min 150.0, max 150.0).",
+        "detail": {}
+      }
+    ]
+  },
+  "outcome": "rejected",
+  "reason": [
+    "Curve numbers outside 30..100 are not physically meaningful (min 150.0, max 150.0)."
+  ],
+  "rainfall_mm": 100.0,
+  "curve_number_mean": 150.0,
+  "domain": {
+    "rows": 321,
+    "cols": 341,
+    "cells": 109461,
+    "valid_cells": 106086,
+    "cell_area_m2": 789.7157994331484,
+    "crs": "EPSG:32650",
+    "resolution_m": [
+      28.10188248913493,
+      28.10188248913493
+    ]
+  }
+}

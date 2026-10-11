@@ -1,0 +1,189 @@
+{
+  "status": "degraded",
+  "quality": {
+    "status": "degraded",
+    "issues": [
+      {
+        "code": "DEM_FLAT",
+        "severity": "warning",
+        "message": "DEM is perfectly flat; ponding is undefined and results will be reported as not applicable.",
+        "detail": {}
+      },
+      {
+        "code": "DEM_NO_HOLES",
+        "severity": "info",
+        "message": "DEM has no missing cells.",
+        "detail": {}
+      },
+      {
+        "code": "WATER_MASK",
+        "severity": "info",
+        "message": "Excluded 7.614 km2 of permanent water surface from the ponding analysis.",
+        "detail": {
+          "water_cells": 9642,
+          "water_area_km2": 7.614439738134417,
+          "detected_components": 0
+        }
+      }
+    ]
+  },
+  "domain": {
+    "rows": 321,
+    "cols": 341,
+    "cells": 109461,
+    "valid_cells": 99819,
+    "water_cells": 9642,
+    "water_area_km2": 7.614439738134417,
+    "cell_area_m2": 789.7157994331484,
+    "crs": "EPSG:32650",
+    "resolution_m": [
+      28.10188248913493,
+      28.10188248913493
+    ],
+    "area_km2": 78.82864138361745
+  },
+  "rainfall_mm": 100.0,
+  "curve_number_mean": 91.96021045460836,
+  "terrain": {
+    "filled_min_m": 15.0,
+    "filled_max_m": 15.0,
+    "max_depression_depth_m": 0.0,
+    "depression_cells": 0,
+    "mean_slope_deg": 0.0,
+    "max_slope_deg": 0.0
+  },
+  "runoff": {
+    "mean_runoff_mm": 78.15689336354987,
+    "max_runoff_mm": 94.03759721791207,
+    "runoff_coefficient": 0.7815689336354987
+  },
+  "ponding": {
+    "total_rain_m3": 0.0,
+    "total_runoff_m3": 6161001.718612903,
+    "routed_inflow_m3": 0.0,
+    "total_stored_m3": 0.0,
+    "total_spilled_m3": 0.0,
+    "outflow_m3": 6161001.718614988,
+    "routed_fraction": 0.0,
+    "pond_area_m2": 0.0,
+    "pond_cells": 0,
+    "max_depth_m": 0.0,
+    "basin_count": 0,
+    "skipped_basins": 49820,
+    "skipped_small": 50000,
+    "basin_accounting_gap_m3": 0.0,
+    "overflowing_basins": 0,
+    "unrouted_runoff_m3": 6161001.718614988
+  },
+  "water_balance": {
+    "rain_volume_m3": 7882864.138361744,
+    "initial_abstraction_m3": 451802.50552497234,
+    "continuing_retention_m3": 1270059.9142238693,
+    "generated_runoff_m3": 6161001.718612903,
+    "scs_algebra_gap_m3": -9.313225746154785e-10,
+    "stored_m3": 0.0,
+    "spilled_m3": 0.0,
+    "outflow_m3": 6161001.718614988,
+    "residual_m3": -2.086162567138672e-06,
+    "relative_error": 2.6464525209643264e-13,
+    "raster_vs_solver_relative_error": null,
+    "routed_fraction": 0.0,
+    "tolerance": 0.01,
+    "passed": true
+  },
+  "sensitivity": {
+    "fraction": 0.2,
+    "baseline_area_m2": 0.0,
+    "variants": [
+      {
+        "cn_factor": 0.8,
+        "pond_area_m2": 0.0,
+        "mean_runoff_mm": 38.7920728688956
+      },
+      {
+        "cn_factor": 0.9,
+        "pond_area_m2": 0.0,
+        "mean_runoff_mm": 56.48147420027304
+      },
+      {
+        "cn_factor": 1.0,
+        "pond_area_m2": 0.0,
+        "mean_runoff_mm": 78.15689336354987
+      },
+      {
+        "cn_factor": 1.1,
+        "pond_area_m2": 0.0,
+        "mean_runoff_mm": 88.42065465598553
+      },
+      {
+        "cn_factor": 1.2,
+        "pond_area_m2": 0.0,
+        "mean_runoff_mm": 92.91069221397888
+      }
+    ],
+    "monotone": true,
+    "max_relative_area_change": 0.0,
+    "tolerance": 0.45,
+    "passed": true
+  },
+  "basins": [],
+  "basin_qc": {
+    "deep_and_tiny_count": 0,
+    "outside_validity_count": 0,
+    "deep_threshold_m": 2.0,
+    "small_threshold_m2": 10000.0,
+    "steep_threshold_deg": 10.0,
+    "note": "Deep tiny ponds and steep-catchment basins are reported separately: the first are candidate DEM artefacts, the second lie outside the validity domain of a depression-storage model.",
+    "screened_pond_area_m2": 0.0,
+    "screened_max_depth_m": 0.0,
+    "screened_basin_count": 0
+  },
+  "checks": {
+    "D01_water_balance": {
+      "relative_error": 2.6464525209643264e-13,
+      "tolerance": 0.01,
+      "passed": true
+    },
+    "D01b_raster_vs_solver": {
+      "relative_error": null,
+      "tolerance": 1e-06,
+      "passed": true
+    },
+    "D04_sensitivity": {
+      "fraction": 0.2,
+      "baseline_area_m2": 0.0,
+      "variants": [
+        {
+          "cn_factor": 0.8,
+          "pond_area_m2": 0.0,
+          "mean_runoff_mm": 38.7920728688956
+        },
+        {
+          "cn_factor": 0.9,
+          "pond_area_m2": 0.0,
+          "mean_runoff_mm": 56.48147420027304
+        },
+        {
+          "cn_factor": 1.0,
+          "pond_area_m2": 0.0,
+          "mean_runoff_mm": 78.15689336354987
+        },
+        {
+          "cn_factor": 1.1,
+          "pond_area_m2": 0.0,
+          "mean_runoff_mm": 88.42065465598553
+        },
+        {
+          "cn_factor": 1.2,
+          "pond_area_m2": 0.0,
+          "mean_runoff_mm": 92.91069221397888
+        }
+      ],
+      "monotone": true,
+      "max_relative_area_change": 0.0,
+      "tolerance": 0.45,
+      "passed": true
+    }
+  },
+  "outcome": "ok"
+}

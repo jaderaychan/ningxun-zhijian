@@ -1,0 +1,69 @@
+{
+  "bounds": [
+    118.72,
+    32.02,
+    118.82,
+    32.1
+  ],
+  "cn": 85.0,
+  "cn_source": "uniform",
+  "scenarios": [
+    {
+      "rain_mm": 50.0,
+      "outcome": "degraded",
+      "ponded_km2": 4.6838044064380036,
+      "max_depth_m": 2.0598432901567634,
+      "spilled_m3": 0.0,
+      "overflowing_basins": 0,
+      "total_runoff_m3": 1602889.4778667667,
+      "d01": 5.1278962959150576e-15
+    },
+    {
+      "rain_mm": 100.0,
+      "outcome": "ok",
+      "ponded_km2": 7.713154213063561,
+      "max_depth_m": 4.076108120076451,
+      "spilled_m3": 0.0,
+      "overflowing_basins": 0,
+      "total_runoff_m3": 4985459.12695936,
+      "d01": 1.18511381061148e-14
+    },
+    {
+      "rain_mm": 150.0,
+      "outcome": "ok",
+      "ponded_km2": 10.042026105591916,
+      "max_depth_m": 4.794053092199483,
+      "spilled_m3": 2278.4418775669037,
+      "overflowing_basins": 8,
+      "total_runoff_m3": 8746732.475719362,
+      "d01": 3.175497261766658e-14
+    },
+    {
+      "rain_mm": 200.0,
+      "outcome": "ok",
+      "ponded_km2": 11.936554308432036,
+      "max_depth_m": 5.75999754948772,
+      "spilled_m3": 14900.931465805714,
+      "overflowing_basins": 20,
+      "total_runoff_m3": 12645863.94499876,
+      "d01": 2.3588322961209266e-14
+    },
+    {
+      "rain_mm": 300.0,
+      "outcome": "ok",
+      "ponded_km2": 14.710825911840688,
+      "max_depth_m": 9.244324284176932,
+      "spilled_m3": 92003.19961199377,
+      "overflowing_basins": 70,
+      "total_runoff_m3": 20611422.551459808,
+      "d01": 2.8108468585015875e-14
+    }
+  ],
+  "artifacts": {
+    "smallmultiples_png": "data/evidence/rainfall_smallmultiples.png",
+    "gif": "data/evidence/rainfall_animation.gif",
+    "mp4": "data/evidence/rainfall_animation.mp4"
+  },
+  "checked_against": "data/evidence/rainfall_sweep.json",
+  "note": "Every frame comes from a fresh run_event with uniform CN; the numbers were asserted against the independently produced rainfall_sweep.json before drawing. The spill branch is exercised from 150 mm upward."
+}

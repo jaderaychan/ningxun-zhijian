@@ -1,0 +1,20 @@
+{
+  "source_title": "江苏省公安厅交警总队：江苏警方公布易积水路段（南京 32 处），2015-07-20",
+  "source_url": "https://gat.jiangsu.gov.cn/art/2015/7/20/art_6373_6620598.html",
+  "study_bounds_wgs84": [
+    118.72,
+    32.0,
+    119.0,
+    32.16
+  ],
+  "total": 32,
+  "matched": 27,
+  "unmatched": [
+    "聚宝山庄岔路口",
+    "滨江花园高架隔音棚内",
+    "七乡河大道铁路涵洞",
+    "下梅墓铁路涵洞",
+    "仙尧路栖霞区委党校门口"
+  ],
+  "note": "2015 list; matched by road-name matching against OSM inside the study area."
+}

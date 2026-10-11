@@ -1,0 +1,67 @@
+{
+  "status": "rejected",
+  "quality": {
+    "status": "rejected",
+    "issues": [
+      {
+        "code": "DEM_OUT_OF_ENVELOPE",
+        "severity": "fatal",
+        "message": "DEM elevation range 2.2..411.1 m is outside the plausible envelope -50.0..400.0 m for this study area (suspect units, vertical datum, or wrong tile).",
+        "detail": {
+          "min_m": 2.182916646762176,
+          "max_m": 411.1365237848449,
+          "envelope": [
+            -50.0,
+            400.0
+          ]
+        }
+      },
+      {
+        "code": "DEM_HOLES",
+        "severity": "warning",
+        "message": "DEM has 3.08% missing cells (largest contiguous hole: 919 cells); holes are treated as open drains.",
+        "detail": {
+          "missing_fraction": 0.030832899388823415,
+          "missing_cells": 3375,
+          "largest_hole_cells": 919
+        }
+      }
+    ]
+  },
+  "outcome": "rejected",
+  "reason": [
+    "DEM elevation range 2.2..411.1 m is outside the plausible envelope -50.0..400.0 m for this study area (suspect units, vertical datum, or wrong tile)."
+  ],
+  "rainfall_mm": 100.0,
+  "curve_number_mean": 85.0,
+  "domain": {
+    "rows": 321,
+    "cols": 341,
+    "cells": 109461,
+    "valid_cells": 106086,
+    "cell_area_m2": 789.7157994331484,
+    "crs": "EPSG:32650",
+    "resolution_m": [
+      28.10188248913493,
+      28.10188248913493
+    ]
+  },
+  "run_config": {
+    "bounds_wgs84": [
+      118.72,
+      32.02,
+      118.82,
+      32.1
+    ],
+    "rain_mm": 100.0,
+    "cn": 85.0,
+    "cn_source": "uniform",
+    "min_depth_m": 0.05,
+    "envelope_m": [
+      -50.0,
+      400.0
+    ],
+    "checkpoints": null,
+    "exposure": false
+  }
+}

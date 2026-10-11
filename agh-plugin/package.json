@@ -1,0 +1,20 @@
+{
+  "name": "@floodkit/agh-flood-tools",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "license": "Apache-2.0",
+  "description": "Urban ponding analysis tools for Agnes Harness: fetch terrain data, run a verified rainfall event, and audit the result.",
+  "exports": "./index.mjs",
+  "agnes": {
+    "plugins": [
+      {
+        "export": "floodTools",
+        "id": "ext:floodkit/agh-flood-tools",
+        "inject": [
+          "extension"
+        ]
+      }
+    ]
+  }
+}

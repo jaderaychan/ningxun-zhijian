@@ -1,0 +1,256 @@
+{
+  "session_key": "6ce01adf-dadc-4115-a41e-472334c69a01",
+  "session_created_at": "2026-10-11T03:47:43.125Z",
+  "model": "agnes-3.0-flash",
+  "exported_at": "2026-10-11T13:54:57",
+  "exported_by": "scripts/export_agh_evidence.py",
+  "source": ".agh/data/sessions.db",
+  "counts": {
+    "session/start": 1,
+    "user/message": 4,
+    "turn/start": 3,
+    "assistant/message": 11,
+    "verifier/signal": 20,
+    "turn/end": 3,
+    "tool/call": 9,
+    "tool/result": 9,
+    "approval/asked": 3,
+    "approval/decided": 3
+  },
+  "flood_tool_calls": 9,
+  "chain": [
+    {
+      "seq": 41,
+      "ts": "2026-10-11T03:48:06.856Z",
+      "tool": "flood_weather",
+      "args": {
+        "at": "2026-10-12T12:00",
+        "window_hours": 1,
+        "place": "南京主城区"
+      },
+      "requires_approval": "never",
+      "approval_verdict": null,
+      "approval_summary": null,
+      "has_result": true,
+      "result_ok": true,
+      "result_code": null,
+      "headline": {
+        "min_mm": 0,
+        "max_mm": 0,
+        "window_start": "2026-10-12T12:00"
+      }
+    },
+    {
+      "seq": 59,
+      "ts": "2026-10-11T03:48:15.631Z",
+      "tool": "flood_selftest",
+      "args": {},
+      "requires_approval": "never",
+      "approval_verdict": null,
+      "approval_summary": null,
+      "has_result": true,
+      "result_ok": true,
+      "result_code": null,
+      "headline": {
+        "checks": 5
+      }
+    },
+    {
+      "seq": 77,
+      "ts": "2026-10-11T03:48:24.226Z",
+      "tool": "flood_run_event",
+      "args": {
+        "bounds": [
+          118.72,
+          32.02,
+          118.82,
+          32.1
+        ],
+        "rain_mm": 200,
+        "cn": 78,
+        "cn_source": "landcover",
+        "exposure": true,
+        "tag": "nj_200mm_20261012",
+        "envelope_min": 5,
+        "envelope_max": 70
+      },
+      "requires_approval": "always",
+      "approval_verdict": "allowed-session",
+      "approval_summary": "flood_run_event bounds=[118.72,32.02,118.82,32.1] rain_mm=200 cn=78 cn_source=\"landcover\" exposure=true tag=\"nj_200mm_20261012\" envelope_min=5 envelope_max=70",
+      "has_result": true,
+      "result_ok": false,
+      "result_code": null,
+      "headline": {
+        "outcome": "rejected",
+        "ponded_km2": 0.0,
+        "max_depth_m": null,
+        "underpass_ways_flooded": null,
+        "facilities_flooded": null
+      }
+    },
+    {
+      "seq": 116,
+      "ts": "2026-10-11T04:21:42.329Z",
+      "tool": "flood_selftest",
+      "args": {},
+      "requires_approval": "never",
+      "approval_verdict": null,
+      "approval_summary": null,
+      "has_result": true,
+      "result_ok": true,
+      "result_code": null,
+      "headline": {
+        "checks": 5
+      }
+    },
+    {
+      "seq": 117,
+      "ts": "2026-10-11T04:21:42.329Z",
+      "tool": "flood_fetch_dem",
+      "args": {
+        "bounds": [
+          118.72,
+          32.02,
+          118.82,
+          32.1
+        ]
+      },
+      "requires_approval": "always",
+      "approval_verdict": "allowed-session",
+      "approval_summary": "flood_fetch_dem bounds=[118.72,32.02,118.82,32.1]",
+      "has_result": true,
+      "result_ok": false,
+      "result_code": null,
+      "headline": null
+    },
+    {
+      "seq": 140,
+      "ts": "2026-10-11T04:21:55.979Z",
+      "tool": "flood_run_event",
+      "args": {
+        "bounds": [
+          118.72,
+          32.02,
+          118.82,
+          32.1
+        ],
+        "rain_mm": 200,
+        "cn": 78,
+        "cn_source": "landcover",
+        "exposure": true,
+        "tag": "nj_200mm_20261012",
+        "envelope_min": 5,
+        "envelope_max": 70
+      },
+      "requires_approval": "always",
+      "approval_verdict": null,
+      "approval_summary": null,
+      "has_result": true,
+      "result_ok": false,
+      "result_code": null,
+      "headline": {
+        "outcome": "rejected",
+        "ponded_km2": 0.0,
+        "max_depth_m": null,
+        "underpass_ways_flooded": null,
+        "facilities_flooded": null
+      }
+    },
+    {
+      "seq": 158,
+      "ts": "2026-10-11T04:22:01.157Z",
+      "tool": "flood_run_event",
+      "args": {
+        "bounds": [
+          118.72,
+          32.02,
+          118.82,
+          32.1
+        ],
+        "cn": 78,
+        "cn_source": "landcover",
+        "exposure": true,
+        "rain_mm": 200,
+        "tag": "nj_200mm_20261012"
+      },
+      "requires_approval": "always",
+      "approval_verdict": null,
+      "approval_summary": null,
+      "has_result": true,
+      "result_ok": true,
+      "result_code": null,
+      "headline": {
+        "outcome": "ok",
+        "ponded_km2": 11.663,
+        "max_depth_m": 5.812423262990848,
+        "underpass_ways_flooded": 142,
+        "facilities_flooded": 168
+      }
+    },
+    {
+      "seq": 176,
+      "ts": "2026-10-11T04:22:34.384Z",
+      "tool": "flood_verify_report",
+      "args": {
+        "report_path": "C:\\Users\\14820\\Desktop\\江苏省ai+黑客松比赛\\data\\runs\\nj_200mm_20261012\\nj_200mm_20261012_report.json"
+      },
+      "requires_approval": "never",
+      "approval_verdict": null,
+      "approval_summary": null,
+      "has_result": true,
+      "result_ok": true,
+      "result_code": null,
+      "headline": {
+        "verified": true,
+        "fatal_count": 0
+      }
+    },
+    {
+      "seq": 194,
+      "ts": "2026-10-11T04:22:38.138Z",
+      "tool": "flood_publish_report",
+      "args": {
+        "tag": "nj_200mm_20261012"
+      },
+      "requires_approval": "never",
+      "approval_verdict": "allowed-session",
+      "approval_summary": "flood_publish_report tag=\"nj_200mm_20261012\"",
+      "has_result": true,
+      "result_ok": true,
+      "result_code": null,
+      "headline": {
+        "url": "http://127.0.0.1:60740/nj_200mm_20261012/nj_200mm_20261012_report.html",
+        "size_bytes": 1803597,
+        "tag": "nj_200mm_20261012"
+      }
+    }
+  ],
+  "runs": [
+    {
+      "tag": "nj_200mm_20261012",
+      "outcome": "rejected",
+      "ponded_km2": 0.0,
+      "max_depth_m": null,
+      "underpass_ways_flooded": null,
+      "facilities_flooded": null
+    },
+    {
+      "tag": "nj_200mm_20261012",
+      "outcome": "rejected",
+      "ponded_km2": 0.0,
+      "max_depth_m": null,
+      "underpass_ways_flooded": null,
+      "facilities_flooded": null
+    },
+    {
+      "tag": "nj_200mm_20261012",
+      "outcome": "ok",
+      "ponded_km2": 11.663,
+      "max_depth_m": 5.812423262990848,
+      "underpass_ways_flooded": 142,
+      "facilities_flooded": 168
+    }
+  ],
+  "audit_lines_mentioning_flood": 39,
+  "note": "The host audit log records extension lifecycle only, so it shows the plugin loaded and cannot show a tool call. The chain above is the model's actual tool use, with the approval verdict for each call, exported from the AGH session store."
+}

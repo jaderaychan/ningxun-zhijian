@@ -1,0 +1,48 @@
+{
+  "status": "rejected",
+  "quality": {
+    "status": "rejected",
+    "issues": [
+      {
+        "code": "DEM_HOLES",
+        "severity": "warning",
+        "message": "DEM has 3.08% missing cells (largest contiguous hole: 919 cells); holes are treated as open drains.",
+        "detail": {
+          "missing_fraction": 0.030832899388823415,
+          "missing_cells": 3375,
+          "largest_hole_cells": 919
+        }
+      },
+      {
+        "code": "RAIN_NEGATIVE",
+        "severity": "fatal",
+        "message": "Rainfall input contains negative depths.",
+        "detail": {}
+      },
+      {
+        "code": "RAIN_ZERO",
+        "severity": "warning",
+        "message": "Rainfall scenario is empty; the model will report zero ponding as a boundary case, not a failure.",
+        "detail": {}
+      }
+    ]
+  },
+  "outcome": "rejected",
+  "reason": [
+    "Rainfall input contains negative depths."
+  ],
+  "rainfall_mm": -5.0,
+  "curve_number_mean": 91.96021045460836,
+  "domain": {
+    "rows": 321,
+    "cols": 341,
+    "cells": 109461,
+    "valid_cells": 106086,
+    "cell_area_m2": 789.7157994331484,
+    "crs": "EPSG:32650",
+    "resolution_m": [
+      28.10188248913493,
+      28.10188248913493
+    ]
+  }
+}

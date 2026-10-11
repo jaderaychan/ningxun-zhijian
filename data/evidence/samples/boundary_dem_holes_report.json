@@ -1,0 +1,84 @@
+{
+  "status": "rejected",
+  "quality": {
+    "status": "rejected",
+    "issues": [
+      {
+        "code": "DEM_HOLES",
+        "severity": "fatal",
+        "message": "DEM has 57.81% missing cells (largest contiguous hole: 2331 cells); holes are treated as open drains.",
+        "detail": {
+          "missing_fraction": 0.5780871726002869,
+          "missing_cells": 63278,
+          "largest_hole_cells": 2331
+        }
+      },
+      {
+        "code": "WATER_MASK",
+        "severity": "info",
+        "message": "Excluded 0.888 km2 of permanent water surface from the ponding analysis.",
+        "detail": {
+          "water_cells": 1124,
+          "water_area_km2": 0.8876405585628588,
+          "detected_components": 3
+        }
+      }
+    ]
+  },
+  "domain": {
+    "rows": 321,
+    "cols": 341,
+    "cells": 109461,
+    "valid_cells": 45059,
+    "water_cells": 1124,
+    "water_area_km2": 0.8876405585628588,
+    "cell_area_m2": 789.7157994331484,
+    "crs": "EPSG:32650",
+    "resolution_m": [
+      28.10188248913493,
+      28.10188248913493
+    ],
+    "area_km2": 35.583804206658236
+  },
+  "rainfall_mm": 100.0,
+  "curve_number_mean": 85.0,
+  "water_bodies": [
+    {
+      "label": 1,
+      "cells": 630,
+      "surface_elev_m": 1.8770907884841679,
+      "surrounding_mean_m": 7.73278363736392,
+      "drop_m": 5.855692848879753,
+      "row": 28,
+      "col": 16,
+      "lon": 118.7246637456921,
+      "lat": 32.09424724275806
+    },
+    {
+      "label": 5,
+      "cells": 292,
+      "surface_elev_m": 2.000281588720196,
+      "surrounding_mean_m": 7.268559749644436,
+      "drop_m": 5.26827816092424,
+      "row": 87,
+      "col": 10,
+      "lon": 118.72259705241272,
+      "lat": 32.07932027668646
+    },
+    {
+      "label": 14,
+      "cells": 202,
+      "surface_elev_m": 2.0,
+      "surrounding_mean_m": 7.161566259786233,
+      "drop_m": 5.161566259786233,
+      "row": 156,
+      "col": 9,
+      "lon": 118.72197159549694,
+      "lat": 32.06183888078063
+    }
+  ],
+  "outcome": "rejected",
+  "reason": [
+    "DEM has 57.81% missing cells (largest contiguous hole: 2331 cells); holes are treated as open drains."
+  ]
+}

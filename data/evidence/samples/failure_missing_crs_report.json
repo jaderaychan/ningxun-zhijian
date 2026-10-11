@@ -1,0 +1,42 @@
+{
+  "status": "rejected",
+  "quality": {
+    "status": "rejected",
+    "issues": [
+      {
+        "code": "CRS_MISSING",
+        "severity": "fatal",
+        "message": "DEM has no coordinate reference system; cell areas and distances would be meaningless.",
+        "detail": {}
+      },
+      {
+        "code": "DEM_HOLES",
+        "severity": "warning",
+        "message": "DEM has 3.08% missing cells (largest contiguous hole: 919 cells); holes are treated as open drains.",
+        "detail": {
+          "missing_fraction": 0.030832899388823415,
+          "missing_cells": 3375,
+          "largest_hole_cells": 919
+        }
+      }
+    ]
+  },
+  "outcome": "rejected",
+  "reason": [
+    "DEM has no coordinate reference system; cell areas and distances would be meaningless."
+  ],
+  "rainfall_mm": 100.0,
+  "curve_number_mean": 91.96021045460836,
+  "domain": {
+    "rows": 321,
+    "cols": 341,
+    "cells": 109461,
+    "valid_cells": 106086,
+    "cell_area_m2": 789.7157994331484,
+    "crs": "None",
+    "resolution_m": [
+      28.10188248913493,
+      28.10188248913493
+    ]
+  }
+}

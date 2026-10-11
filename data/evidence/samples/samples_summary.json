@@ -1,0 +1,272 @@
+{
+  "rain_mm": 100.0,
+  "curve_number": 85.0,
+  "total": 8,
+  "passed": 8,
+  "failed": 0,
+  "by_kind": {
+    "normal": {
+      "count": 1,
+      "passed": 1
+    },
+    "boundary": {
+      "count": 3,
+      "passed": 3
+    },
+    "failure": {
+      "count": 4,
+      "passed": 4
+    }
+  },
+  "records": [
+    {
+      "key": "normal_standard_event",
+      "kind": "normal",
+      "title": "Complete DEM with a standard 100 mm event",
+      "expectation": "outcome ok; every machine-checkable indicator passes; a depth raster is produced",
+      "outcome": "ok",
+      "quality_status": "degraded",
+      "issues": [
+        "DEM_HOLES",
+        "WATER_MASK"
+      ],
+      "checks": {
+        "D01_water_balance": true,
+        "D01b_raster_vs_solver": true,
+        "D04_sensitivity": true
+      },
+      "produced_raster": true,
+      "expectation_met": true,
+      "verdict_detail": "ok, all indicators passed",
+      "tags": [
+        "D01",
+        "D01b",
+        "D04"
+      ],
+      "artifacts_written": true
+    },
+    {
+      "key": "boundary_zero_rain",
+      "kind": "boundary",
+      "title": "Zero rainfall",
+      "expectation": "not a failure: quality degrades, zero ponding is reported, indicators still evaluate",
+      "outcome": "ok",
+      "quality_status": "degraded",
+      "issues": [
+        "DEM_HOLES",
+        "RAIN_ZERO",
+        "WATER_MASK"
+      ],
+      "checks": {
+        "D01_water_balance": true,
+        "D01b_raster_vs_solver": true,
+        "D04_sensitivity": true
+      },
+      "produced_raster": true,
+      "expectation_met": true,
+      "verdict_detail": "degraded quality, zero ponded area, run still evaluates",
+      "tags": [
+        "D05"
+      ],
+      "artifacts_written": true
+    },
+    {
+      "key": "boundary_dem_holes",
+      "kind": "boundary",
+      "title": "DEM with a regular pattern of missing cells",
+      "expectation": "holes are reported and treated as drains; the run completes without inventing ponds in holes",
+      "outcome": "ok",
+      "quality_status": "degraded",
+      "issues": [
+        "DEM_HOLES",
+        "WATER_MASK"
+      ],
+      "checks": {
+        "D01_water_balance": true,
+        "D01b_raster_vs_solver": true,
+        "D04_sensitivity": true
+      },
+      "produced_raster": true,
+      "expectation_met": true,
+      "verdict_detail": "holes reported, run completed, no fake ponding",
+      "tags": [
+        "D05"
+      ],
+      "artifacts_written": true
+    },
+    {
+      "key": "boundary_flat_terrain",
+      "kind": "boundary",
+      "title": "Perfectly flat terrain",
+      "expectation": "flagged as flat; the model must not claim meaningful ponding on an undefined surface",
+      "outcome": "ok",
+      "quality_status": "degraded",
+      "issues": [
+        "DEM_FLAT",
+        "DEM_NO_HOLES",
+        "WATER_MASK"
+      ],
+      "checks": {
+        "D01_water_balance": true,
+        "D01b_raster_vs_solver": true,
+        "D04_sensitivity": true
+      },
+      "produced_raster": true,
+      "expectation_met": true,
+      "verdict_detail": "flatness surfaced as a warning",
+      "tags": [
+        "D05"
+      ],
+      "artifacts_written": true
+    },
+    {
+      "key": "failure_missing_crs",
+      "kind": "failure",
+      "title": "DEM without a coordinate reference system",
+      "expectation": "fail-closed: rejected, no depth raster, an explicit reason",
+      "outcome": "rejected",
+      "quality_status": "rejected",
+      "issues": [
+        "CRS_MISSING",
+        "DEM_HOLES"
+      ],
+      "checks": {},
+      "produced_raster": false,
+      "expectation_met": true,
+      "verdict_detail": "rejected with CRS_MISSING, no raster",
+      "tags": [
+        "D05",
+        "fail-closed"
+      ],
+      "artifacts_written": false,
+      "report": "C:\\Users\\14820\\Desktop\\江苏省ai+黑客松比赛\\data\\evidence\\samples\\failure_missing_crs_report.json"
+    },
+    {
+      "key": "failure_imperial_units",
+      "kind": "failure",
+      "title": "Elevation delivered in feet",
+      "expectation": "fail-closed: the study-area envelope rejects the surface instead of modelling 3.28x relief",
+      "outcome": "rejected",
+      "quality_status": "rejected",
+      "issues": [
+        "DEM_OUT_OF_ENVELOPE",
+        "DEM_HOLES"
+      ],
+      "checks": {},
+      "produced_raster": false,
+      "expectation_met": true,
+      "verdict_detail": "rejected with DEM_OUT_OF_ENVELOPE, no raster",
+      "tags": [
+        "D05",
+        "fail-closed"
+      ],
+      "artifacts_written": false,
+      "report": "C:\\Users\\14820\\Desktop\\江苏省ai+黑客松比赛\\data\\evidence\\samples\\failure_imperial_units_report.json"
+    },
+    {
+      "key": "failure_corrupt_rainfall",
+      "kind": "failure",
+      "title": "Rainfall file with negative depths",
+      "expectation": "fail-closed: rejected before any modelling",
+      "outcome": "rejected",
+      "quality_status": "rejected",
+      "issues": [
+        "DEM_HOLES",
+        "RAIN_NEGATIVE",
+        "RAIN_ZERO"
+      ],
+      "checks": {},
+      "produced_raster": false,
+      "expectation_met": true,
+      "verdict_detail": "rejected with RAIN_NEGATIVE, no raster",
+      "tags": [
+        "D05",
+        "fail-closed"
+      ],
+      "artifacts_written": false,
+      "report": "C:\\Users\\14820\\Desktop\\江苏省ai+黑客松比赛\\data\\evidence\\samples\\failure_corrupt_rainfall_report.json"
+    },
+    {
+      "key": "failure_curve_number_out_of_range",
+      "kind": "failure",
+      "title": "Curve number outside the physical range",
+      "expectation": "fail-closed: CN 150 has no physical meaning and must be refused",
+      "outcome": "rejected",
+      "quality_status": "rejected",
+      "issues": [
+        "DEM_HOLES",
+        "CN_OUT_OF_RANGE"
+      ],
+      "checks": {},
+      "produced_raster": false,
+      "expectation_met": true,
+      "verdict_detail": "rejected with CN_OUT_OF_RANGE, no raster",
+      "tags": [
+        "D05",
+        "fail-closed"
+      ],
+      "artifacts_written": false,
+      "report": "C:\\Users\\14820\\Desktop\\江苏省ai+黑客松比赛\\data\\evidence\\samples\\failure_curve_number_out_of_range_report.json"
+    }
+  ],
+  "cn_source": "landcover",
+  "landcover": {
+    "class_stats": [
+      {
+        "class": 50,
+        "name": "built-up",
+        "cells": 72517,
+        "fraction": 0.6624916636975726,
+        "cn": 98.0
+      },
+      {
+        "class": 10,
+        "name": "tree cover",
+        "cells": 22481,
+        "fraction": 0.2053790847881894,
+        "cn": 70.0
+      },
+      {
+        "class": 80,
+        "name": "water",
+        "cells": 9642,
+        "fraction": 0.08808616767615864,
+        "cn": 100.0
+      },
+      {
+        "class": 40,
+        "name": "cropland",
+        "cells": 1521,
+        "fraction": 0.013895359991229752,
+        "cn": 78.0
+      },
+      {
+        "class": 60,
+        "name": "bare/sparse",
+        "cells": 977,
+        "fraction": 0.008925553393446068,
+        "cn": 88.0
+      },
+      {
+        "class": 30,
+        "name": "grassland",
+        "cells": 649,
+        "fraction": 0.005929052356547081,
+        "cn": 74.0
+      },
+      {
+        "class": 90,
+        "name": "wetland",
+        "cells": 92,
+        "fraction": 0.0008404819981545938,
+        "cn": 85.0
+      }
+    ],
+    "mean_impervious_fraction": 0.6483342051506042,
+    "cn_min": 70.0,
+    "cn_max": 100.0,
+    "cn_mean": 91.96021045460836,
+    "source": "ESA WorldCover 10m v200 (2021), TR-55 composite CN, HSG C",
+    "tile": "ESA_WorldCover_10m_2021_v200_N30E117_Map.tif"
+  }
+}

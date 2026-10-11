@@ -1,0 +1,206 @@
+{
+  "status": "degraded",
+  "quality": {
+    "status": "degraded",
+    "issues": [
+      {
+        "code": "DEM_HOLES",
+        "severity": "warning",
+        "message": "DEM has 3.08% missing cells (largest contiguous hole: 919 cells); holes are treated as open drains.",
+        "detail": {
+          "missing_fraction": 0.030832899388823415,
+          "missing_cells": 3375,
+          "largest_hole_cells": 919
+        }
+      },
+      {
+        "code": "RAIN_ZERO",
+        "severity": "warning",
+        "message": "Rainfall scenario is empty; the model will report zero ponding as a boundary case, not a failure.",
+        "detail": {}
+      },
+      {
+        "code": "WATER_MASK",
+        "severity": "info",
+        "message": "Excluded 7.614 km2 of permanent water surface from the ponding analysis.",
+        "detail": {
+          "water_cells": 9642,
+          "water_area_km2": 7.614439738134417,
+          "detected_components": 1
+        }
+      }
+    ]
+  },
+  "domain": {
+    "rows": 321,
+    "cols": 341,
+    "cells": 109461,
+    "valid_cells": 96644,
+    "water_cells": 9642,
+    "water_area_km2": 7.614439738134417,
+    "cell_area_m2": 789.7157994331484,
+    "crs": "EPSG:32650",
+    "resolution_m": [
+      28.10188248913493,
+      28.10188248913493
+    ],
+    "area_km2": 76.32129372041719
+  },
+  "rainfall_mm": 0.0,
+  "curve_number_mean": 91.96021045460836,
+  "water_bodies": [
+    {
+      "label": 1,
+      "cells": 2595,
+      "surface_elev_m": 1.9334309168423818,
+      "surrounding_mean_m": 8.60392619206392,
+      "drop_m": 6.670495275221538,
+      "row": 66,
+      "col": 12,
+      "lon": 118.72329220505736,
+      "lat": 32.08463382413512
+    }
+  ],
+  "terrain": {
+    "filled_min_m": 1.4999999999999996,
+    "filled_max_m": 125.31441440663517,
+    "max_depression_depth_m": 13.022222170287492,
+    "depression_cells": 34098,
+    "mean_slope_deg": 4.177587084953183,
+    "max_slope_deg": 64.87037874013502
+  },
+  "runoff": {
+    "mean_runoff_mm": 0.0,
+    "max_runoff_mm": 0.0,
+    "runoff_coefficient": 0.0
+  },
+  "ponding": {
+    "total_rain_m3": 0.0,
+    "total_runoff_m3": 0.0,
+    "routed_inflow_m3": 0.0,
+    "total_stored_m3": 0.0,
+    "total_spilled_m3": 0.0,
+    "outflow_m3": 0.0,
+    "routed_fraction": 0.0,
+    "pond_area_m2": 0.0,
+    "pond_cells": 0,
+    "max_depth_m": 0.0,
+    "basin_count": 0,
+    "skipped_basins": 0,
+    "skipped_small": 5877,
+    "basin_accounting_gap_m3": 0.0,
+    "overflowing_basins": 0,
+    "unrouted_runoff_m3": 0.0
+  },
+  "water_balance": {
+    "rain_volume_m3": 0.0,
+    "initial_abstraction_m3": 0.0,
+    "continuing_retention_m3": 0.0,
+    "generated_runoff_m3": 0.0,
+    "scs_algebra_gap_m3": 0.0,
+    "stored_m3": 0.0,
+    "spilled_m3": 0.0,
+    "outflow_m3": 0.0,
+    "residual_m3": 0.0,
+    "relative_error": 0.0,
+    "raster_vs_solver_relative_error": null,
+    "routed_fraction": 0.0,
+    "tolerance": 0.01,
+    "passed": true
+  },
+  "sensitivity": {
+    "fraction": 0.2,
+    "baseline_area_m2": 0.0,
+    "variants": [
+      {
+        "cn_factor": 0.8,
+        "pond_area_m2": 0.0,
+        "mean_runoff_mm": 0.0
+      },
+      {
+        "cn_factor": 0.9,
+        "pond_area_m2": 0.0,
+        "mean_runoff_mm": 0.0
+      },
+      {
+        "cn_factor": 1.0,
+        "pond_area_m2": 0.0,
+        "mean_runoff_mm": 0.0
+      },
+      {
+        "cn_factor": 1.1,
+        "pond_area_m2": 0.0,
+        "mean_runoff_mm": 0.0
+      },
+      {
+        "cn_factor": 1.2,
+        "pond_area_m2": 0.0,
+        "mean_runoff_mm": 0.0
+      }
+    ],
+    "monotone": true,
+    "max_relative_area_change": 0.0,
+    "tolerance": 0.45,
+    "passed": true
+  },
+  "basins": [],
+  "basin_qc": {
+    "deep_and_tiny_count": 0,
+    "outside_validity_count": 0,
+    "deep_threshold_m": 2.0,
+    "small_threshold_m2": 10000.0,
+    "steep_threshold_deg": 10.0,
+    "note": "Deep tiny ponds and steep-catchment basins are reported separately: the first are candidate DEM artefacts, the second lie outside the validity domain of a depression-storage model.",
+    "screened_pond_area_m2": 0.0,
+    "screened_max_depth_m": 0.0,
+    "screened_basin_count": 0
+  },
+  "checks": {
+    "D01_water_balance": {
+      "relative_error": 0.0,
+      "tolerance": 0.01,
+      "passed": true
+    },
+    "D01b_raster_vs_solver": {
+      "relative_error": null,
+      "tolerance": 1e-06,
+      "passed": true
+    },
+    "D04_sensitivity": {
+      "fraction": 0.2,
+      "baseline_area_m2": 0.0,
+      "variants": [
+        {
+          "cn_factor": 0.8,
+          "pond_area_m2": 0.0,
+          "mean_runoff_mm": 0.0
+        },
+        {
+          "cn_factor": 0.9,
+          "pond_area_m2": 0.0,
+          "mean_runoff_mm": 0.0
+        },
+        {
+          "cn_factor": 1.0,
+          "pond_area_m2": 0.0,
+          "mean_runoff_mm": 0.0
+        },
+        {
+          "cn_factor": 1.1,
+          "pond_area_m2": 0.0,
+          "mean_runoff_mm": 0.0
+        },
+        {
+          "cn_factor": 1.2,
+          "pond_area_m2": 0.0,
+          "mean_runoff_mm": 0.0
+        }
+      ],
+      "monotone": true,
+      "max_relative_area_change": 0.0,
+      "tolerance": 0.45,
+      "passed": true
+    }
+  },
+  "outcome": "ok"
+}

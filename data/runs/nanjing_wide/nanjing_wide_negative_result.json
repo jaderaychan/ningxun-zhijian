@@ -1,0 +1,23 @@
+{
+  "tag": "nanjing_wide",
+  "points": 27,
+  "hits": 3,
+  "hit_rate": 0.1111111111111111,
+  "tolerance": 0.7,
+  "auc": 0.5192701923076923,
+  "auc_ci95": [
+    0.4069198585839679,
+    0.6316205260314168
+  ],
+  "z_score": 0.3361768111517533,
+  "auc_from_drawn_roc": 0.5192701923076921,
+  "official_points_in_grid": 26,
+  "background_cells": 20000,
+  "rerun_reproduced_report": true,
+  "panels": [
+    "roc",
+    "ecdf",
+    "map"
+  ],
+  "note": "auc_from_drawn_roc is integrated from the plotted curve; it must equal auc."
+}

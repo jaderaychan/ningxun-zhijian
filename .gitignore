@@ -1,0 +1,67 @@
+# What must not be versioned, and why.
+#
+# This mirrors the exclusion list in scripts/package-submission.ps1, which is the
+# list the submission ZIP has been built and checked against. Keeping the two in
+# step matters: a repository that disagrees with the shipped archive is a second,
+# quieter definition of "the project", and the first thing a reviewer would notice
+# is that cloning gives them something the ZIP does not (or the reverse).
+#
+# The rule is: source, docs, tests and the evidence the documents reference are
+# versioned; anything that is a cache, a dependency, a clone or a build output is
+# not, because every one of them is reproducible from the tracked files.
+# scripts/setup.ps1 fetches the rest.
+#
+# NOTE: gitignore has no trailing comments — a "# ..." after a pattern becomes part
+# of the pattern and the rule silently matches nothing. Every comment is its own line.
+
+# --- third-party clone and dependency trees (fetched, not vendored) ---
+# ~985 MB Agnes Harness checkout; setup.ps1 clones it
+_agh_src/
+agh_docs/
+# ~344 MB of wheels; setup.ps1 installs them
+.pylibs/
+.venv/
+.pnpm-store/
+.pnpm-home/
+.npm-cache/
+.corepack/
+.node-headers/
+data/node-headers/
+.piptmp/
+
+# --- raw data caches, all re-downloadable by the scripts ---
+# Copernicus DEM GLO-30 tiles
+data/dem/
+# ESA WorldCover tiles
+data/landcover/
+# OpenStreetMap extracts
+data/osm/
+# Open-Meteo response cache
+data/weather/
+
+# --- scratch and machine-local state ---
+data/tmp/
+# matplotlib font cache
+.mplconfig/
+# the AGH profile written by 启动AGH.cmd
+.agh-home/
+.acl-recovery/
+# per-machine paths written by setup.ps1
+.floodkit.json
+
+# --- build output and the mutation-testing scratch trees ---
+# the submission ZIP is a build artifact, not source
+dist/
+_mutation/
+_cleanroom/
+_zipview/
+
+# --- the organisers' competition notice: their document, not this project's output ---
+/关于举办*
+
+# --- derived files that must never ride along, wherever they land ---
+__pycache__/
+*.py[cod]
+*.npy
+*.part
+*.log
