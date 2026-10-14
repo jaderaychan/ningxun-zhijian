@@ -236,7 +236,7 @@ assert abs(p - ia - f - q) < 1e-9
 ---
 
 *本文所述数据均可复现。代码、测试与证据包随作品一并提交。*
-*发布的仓库地址：【填你的仓库或作品页地址】*
+*发布的仓库地址：https://github.com/jaderaychan/ningxun-zhijian*
 
 ---
 

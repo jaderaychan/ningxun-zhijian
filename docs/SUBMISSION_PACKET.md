@@ -134,7 +134,7 @@
 
 | 字段 | 内容 |
 |---|---|
-| **代码仓库** | [填写你的 GitHub / Gitee 仓库链接] |
+| **代码仓库** | https://github.com/jaderaychan/ningxun-zhijian（公开，Apache-2.0） |
 | **在线体验** | [可选；本地运行亦已足够] |
 | **可复现运行说明** | 见仓库 `README.md`；一条命令完成环境准备：`pwsh -File scripts\setup.ps1` |
 
