@@ -106,7 +106,7 @@
 | `docs/SUBMISSION_PACKET.md` §2 | ✅ 已换成真实捕获的调用链（会话 `6ce01adf…`） | — |
 | `docs/SUBMISSION_PACKET.md` §5.3 | ✅ 已换入两张真实截图（模型名 + 三次 run_event 的 rejected→ok） | — |
 | `docs/SUBMISSION_PACKET.md` §7 | `[姓名]` `[学校]` 等 | 填真实信息（姓名/学校/学院/专业/年级 + 签字） |
-| `docs/SUBMISSION_PACKET.md` §8 | 平台/链接/日期 | 填发布后的真实信息（公开发布后才能填） |
+| `docs/SUBMISSION_PACKET.md` §8 | ✅ 已填入知乎链接与发布日期（2026-10-14）+ 截图 | — |
 | 演示视频 | ⏳ **未录制**（必填项） | 分镜见 `docs/DEMO_BRIEF.md`，3–5 分钟，链接需匿名可访问 |
 | 打包命令 | `U247` / `陈琪睿`（已填入） | — |
 | `data/evidence/agh/` | ✅ 已生成 5 个文件（含真实轨迹与摘要） | `scripts/export_agh_evidence.py` |
