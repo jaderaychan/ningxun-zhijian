@@ -1,4 +1,4 @@
-﻿# 交接说明
+# 交接说明
 
 > 更新于 2026-10-09。**Agnes API Key 已到手，AGH 链路已跑通**：
 > 报名完成 → 模型配置完成 → 插件安装成功 → 完整任务出结果（7.81 km²）→ 独立复核通过（fatal_count: 0）。
@@ -104,9 +104,10 @@
 | 位置 | 现状 | 要做的事 |
 |---|---|---|
 | `docs/SUBMISSION_PACKET.md` §2 | ✅ 已换成真实捕获的调用链（会话 `6ce01adf…`） | — |
-| `docs/SUBMISSION_PACKET.md` §5.3 | 占位"录制时截取轨迹视图" | 换成真实截图 |
-| `docs/SUBMISSION_PACKET.md` §7 | `[姓名]` `[学校]` 等 | 填真实信息 |
-| `docs/SUBMISSION_PACKET.md` §8 | 平台/链接/日期 | 填发布后的真实信息 |
+| `docs/SUBMISSION_PACKET.md` §5.3 | ✅ 已换入两张真实截图（模型名 + 三次 run_event 的 rejected→ok） | — |
+| `docs/SUBMISSION_PACKET.md` §7 | `[姓名]` `[学校]` 等 | 填真实信息（姓名/学校/学院/专业/年级 + 签字） |
+| `docs/SUBMISSION_PACKET.md` §8 | 平台/链接/日期 | 填发布后的真实信息（公开发布后才能填） |
+| 演示视频 | ⏳ **未录制**（必填项） | 分镜见 `docs/DEMO_BRIEF.md`，3–5 分钟，链接需匿名可访问 |
 | 打包命令 | `U247` / `陈琪睿`（已填入） | — |
 | `data/evidence/agh/` | ✅ 已生成 5 个文件（含真实轨迹与摘要） | `scripts/export_agh_evidence.py` |
 

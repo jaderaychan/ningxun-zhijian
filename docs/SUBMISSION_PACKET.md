@@ -213,8 +213,21 @@ python tests\test_floodkit.py
 ### 5.3 Agnes 模型参与核心任务的证据
 
 - AGH 轨迹视图中的模型调用记录（规划 → 工具选择 → 结果解读 → 异常诊断）
-- 截图：[录制时截取轨迹视图]
+- **工作台「轨迹」视图截图**（会话标题 **罗列 flood 工具名称**，会话 id `6ce01adf-dadc-4115-a41e-472334c69a01`，模型 `agnes-3.0-flash`）：
+
+| 截图 | 文件 | 看什么 |
+|---|---|---|
+| ① | `data/evidence/public/agh_trajectory_1_20261011.png` | 模型名 `agnes-3.0-flash` + 前几次工具调用（`flood_weather` 查前提、`flood_selftest` 自检） |
+| ② | `data/evidence/public/agh_trajectory_2_20261011.png` | 三次 `flood_run_event` 与审批：**前两次 rejected（模型自带的包络 5–70 m 与真实高程 0.7–125.3 m 冲突），第三次去掉覆盖后 ok** |
+
+> 第 ② 张是这一项最有力的证据：它显示模型**自己发现前提错了、自己改、自己重跑成功**，
+> 而不是照着人给的参数走一遍。整条链可在 `data/evidence/agh/session_trace.jsonl` 里
+> 按 `seq` 逐条查到，并由 `python tests/verify_agh_evidence.py` 与包内报告逐项核对。
 - 配置截图：Settings → Models & accounts 中的 `agnes-3.0-flash`
+
+> ⚠️ **截图里不要出现 API Key。** 仓库内的 `data/ui/agh_workbench.png` 是 2026-10-07 的
+> 「Models & accounts」界面截图，当时账号列表还是空的（"正在读取配置…"），
+> **不能当作本节证据**——它证明的恰好相反。
 
 ### 5.4 关键配置
 
