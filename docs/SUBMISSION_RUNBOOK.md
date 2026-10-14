@@ -185,10 +185,13 @@ python -X utf8 tests\verify_agh_evidence.py        # 与包内报告逐项核对
 > `export_agh_evidence.py` 从 AGH 会话库 `sessions.db` 导出真实的 `tool/call`、
 > `tool/result` 与审批事件。
 
-> ⚠️ **诚信提醒**：`SUBMISSION_PACKET.md` 的 **§2 与 §5.3 目前是占位内容**，
-> 写明了"待 AGH 实录"。**务必把它们替换成真实捕获的记录**，
-> 不要保留设计稿、也不要照抄。提交的材料里出现未经实测的"证据"，一旦被核对就是硬伤。
-> §2 里已经写好了替换模板，照着填即可。
+> **§2 已填成实测记录**：会话 `6ce01adf-dadc-4115-a41e-472334c69a01`（`agnes-3.0-flash`，
+> 3 轮 / 9 次工具调用 / 3 次审批），数据来自 `data/evidence/agh/`，
+> 并由 `python tests/verify_agh_evidence.py` 与包内报告逐项核对。
+>
+> ⚠️ **只剩 §5.3 是占位**：那一节要的是**工作台轨迹视图的截图**，只能在界面里截，
+> 脚本代替不了。截图存到 `data/evidence/public/`（§8 的发布截图也放这里）。
+> 提交材料里出现未经实测的"证据"，一旦被核对就是硬伤。
 
 **要能证明的三件事**（缺一不可）：
 

@@ -133,7 +133,7 @@ DEM(GLO-30) → 度量投影(UTM 50N，地理坐标系下格子面积随纬度�
 | AGH daemon + Web | ✅ 运行中，工作台 http://127.0.0.1:4177/ |
 | Python 科学栈 | ✅ numpy 2.5.3 / scipy 1.18.1 / rasterio 1.5.2 (GDAL 3.12.2) / matplotlib 3.11.2 |
 | 数据链路 | ✅ DEM / 土地覆盖 / OSM 全部直连可读 |
-| Agnes 模型 | ⏳ 待用户注册拿 Key 后配置（`provider.routes` 未声明，宿主因 `E_PRESET_UNRESOLVED` 不组装） |
+| Agnes 模型 | ✅ 已配置（`agnes-3.0-flash`，实测见 `data/evidence/agh/`）| 原计划：（`provider.routes` 未声明，宿主因 `E_PRESET_UNRESOLVED` 不组装） |
 | 硬件 | RTX 5060 8G / ffmpeg，无需实验室设备（MATLAB 因许可证过期**不可用**） |
 
 ## 11. 关键技术备忘（踩过的坑，避免重来）
@@ -229,7 +229,7 @@ CN 由"全部 85"变为 min 70 / 均值 92 / max 100；径流系数 0.61 → **0
   4 个已装插件注册了 10 个工具（`extension.registered ... kind: tool`）
 - ⚠️ `doctor extensions` 失败的唯一原因：`E_PRESET_UNRESOLVED: no-routes`
   —— 即尚未声明 `provider.routes`（缺 Agnes Key），**不是平台缺陷**
-- ⏳ 插件安装需人工在 Web 工作台完成（设置 → 插件管理 → 源填 `file:./flood-tools`）
+- ✅ 插件已安装启用（8 个工具）；原注：插件安装需人工在 Web 工作台完成（设置 → 插件管理 → 源填 `file:./flood-tools`）
 - ⚠️ **更正一条早先写错的结论**：曾记录"SDK 直连 daemon 被原生管道握手挡住"。
   复查后发现官方 CLI 自身的连接是成功的（`daemon status` 报 `socketReachable: true`），
   但**从另一个进程用 SDK 连接会得到 `TransportClosed`**，即使用上 CLI 同款的
