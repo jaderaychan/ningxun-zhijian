@@ -225,9 +225,7 @@ python tests\test_floodkit.py
 > 按 `seq` 逐条查到，并由 `python tests/verify_agh_evidence.py` 与包内报告逐项核对。
 - 配置截图：Settings → Models & accounts 中的 `agnes-3.0-flash`
 
-> ⚠️ **截图里不要出现 API Key。** 仓库内的 `data/ui/agh_workbench.png` 是 2026-10-07 的
-> 「Models & accounts」界面截图，当时账号列表还是空的（"正在读取配置…"），
-> **不能当作本节证据**——它证明的恰好相反。
+> ⚠️ **截图里不要出现 API Key。**
 
 ### 5.4 关键配置
 
@@ -321,8 +319,6 @@ Python           : 3.12 (numpy 2.5.3 / scipy 1.18.1 / rasterio 1.5.2 / GDAL 3.12
 
 > 作品的所有数值结果均由本队自研代码计算得出，可用仓库脚本复现（`README.md` 有完整命令）。
 > 模型仅使用赛事指定的 Agnes 系列模型，运行底座仅使用 AGH。
-
-全体成员签名：____________________　日期：2026 年 [__] 月 [__] 日
 
 ---
 

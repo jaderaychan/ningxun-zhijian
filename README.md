@@ -423,7 +423,7 @@ tests/               ③ 测试与自检（13 个文件）
   rehearse-agent-path.mjs    演示彩排（不调模型，直接驱动插件）
   make_verify_fixture.py     生成跨语言验证用的夹具
 
-scripts/             ④ 环境与工具脚本（14 个文件）
+scripts/             ④ 环境与工具脚本（13 个文件）
   setup.ps1                  一键环境准备（找 Python、装依赖、写配置）
   package-submission.ps1     打包成提交 ZIP
   install-plugin.mjs         同步插件到 AGH 并安装
@@ -436,7 +436,6 @@ scripts/             ④ 环境与工具脚本（14 个文件）
   make_rainfall_animation.py 生成降雨强度动画（GIF / MP4）与多情景小倍数图
   build_checkpoints.py       整理官方易涝点清单
   make_bad_dem.py            生成故意做坏的 DEM（异常处理演示用）
-  hackathon_text.txt         比赛通知的文字提取
 
 docs/                ⑤ 文档（12 份，按读者分：评委 / 自己 / 填表）
 data/                ⑥ 数据与产物
