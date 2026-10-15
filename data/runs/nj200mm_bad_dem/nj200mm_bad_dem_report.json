@@ -1,0 +1,135 @@
+{
+  "status": "rejected",
+  "quality": {
+    "status": "rejected",
+    "issues": [
+      {
+        "code": "DEM_OUT_OF_ENVELOPE",
+        "severity": "fatal",
+        "message": "DEM elevation range 2.2..411.1 m is outside the plausible envelope 0.0..50.0 m for this study area (suspect units, vertical datum, or wrong tile). This envelope was supplied by the caller, not the validated default for this study area (-50.0..400.0 m): if it was not measured, drop the override and re-run.",
+        "detail": {
+          "min_m": 2.182916646762176,
+          "max_m": 411.1365237848449,
+          "envelope": [
+            0.0,
+            50.0
+          ],
+          "envelope_overridden": true,
+          "validated_default_envelope": [
+            -50.0,
+            400.0
+          ]
+        }
+      },
+      {
+        "code": "DEM_HOLES",
+        "severity": "warning",
+        "message": "DEM has 3.08% missing cells (largest contiguous hole: 919 cells); holes are treated as open drains.",
+        "detail": {
+          "missing_fraction": 0.030832899388823415,
+          "missing_cells": 3375,
+          "largest_hole_cells": 919
+        }
+      }
+    ]
+  },
+  "outcome": "rejected",
+  "reason": [
+    "DEM elevation range 2.2..411.1 m is outside the plausible envelope 0.0..50.0 m for this study area (suspect units, vertical datum, or wrong tile). This envelope was supplied by the caller, not the validated default for this study area (-50.0..400.0 m): if it was not measured, drop the override and re-run."
+  ],
+  "rainfall_mm": 200.0,
+  "curve_number_mean": 91.96021045460836,
+  "domain": {
+    "rows": 321,
+    "cols": 341,
+    "cells": 109461,
+    "valid_cells": 106086,
+    "cell_area_m2": 789.7157994331484,
+    "crs": "EPSG:32650",
+    "resolution_m": [
+      28.10188248913493,
+      28.10188248913493
+    ]
+  },
+  "run_config": {
+    "bounds_wgs84": [
+      118.72,
+      32.02,
+      118.82,
+      32.1
+    ],
+    "rain_mm": 200.0,
+    "cn": 62.0,
+    "cn_source": "landcover",
+    "min_depth_m": 0.05,
+    "envelope_m": [
+      0.0,
+      50.0
+    ],
+    "checkpoints": null,
+    "exposure": true
+  },
+  "landcover": {
+    "class_stats": [
+      {
+        "class": 50,
+        "name": "built-up",
+        "cells": 72517,
+        "fraction": 0.6624916636975726,
+        "cn": 98.0
+      },
+      {
+        "class": 10,
+        "name": "tree cover",
+        "cells": 22481,
+        "fraction": 0.2053790847881894,
+        "cn": 70.0
+      },
+      {
+        "class": 80,
+        "name": "water",
+        "cells": 9642,
+        "fraction": 0.08808616767615864,
+        "cn": 100.0
+      },
+      {
+        "class": 40,
+        "name": "cropland",
+        "cells": 1521,
+        "fraction": 0.013895359991229752,
+        "cn": 78.0
+      },
+      {
+        "class": 60,
+        "name": "bare/sparse",
+        "cells": 977,
+        "fraction": 0.008925553393446068,
+        "cn": 88.0
+      },
+      {
+        "class": 30,
+        "name": "grassland",
+        "cells": 649,
+        "fraction": 0.005929052356547081,
+        "cn": 74.0
+      },
+      {
+        "class": 90,
+        "name": "wetland",
+        "cells": 92,
+        "fraction": 0.0008404819981545938,
+        "cn": 85.0
+      }
+    ],
+    "mean_impervious_fraction": 0.6483342051506042,
+    "cn_min": 70.0,
+    "cn_max": 100.0,
+    "cn_mean": 91.96021045460836,
+    "source": "ESA WorldCover 10m v200 (2021), TR-55 composite CN, HSG C",
+    "tile": "ESA_WorldCover_10m_2021_v200_N30E117_Map.tif"
+  },
+  "exposure": {
+    "available": false,
+    "reason": "run produced no depth raster"
+  }
+}
