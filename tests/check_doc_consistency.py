@@ -23,6 +23,7 @@ WIDE_RUN = os.path.join(ROOT, "data", "runs", "nanjing_wide", "nanjing_wide_repo
 
 DOCS = [
     "README.md",
+    "README.zh-CN.md",
     "docs/SUBMISSION_PACKET.md",
     "docs/DEMO_BRIEF.md",
     "docs/PLAN.md",
@@ -135,25 +136,32 @@ def main() -> int:
         str(numbers["study_area_km2"]),
     ]
 
-    # The README's file tree quotes a file count per directory. Those counts drifted
+    # Each README's file tree quotes a file count per directory. Those counts drifted
     # three times during development and were caught by hand each time; a number that
-    # can be counted should be counted. `docs/` uses 份 and the rest 个文件, so the
-    # pattern accepts either unit.
-    with open(os.path.join(ROOT, "README.md"), encoding="utf-8") as fh:
-        readme_text = fh.read()
+    # can be counted should be counted. The Chinese README uses 份 / 个文件, the
+    # English one uses "files" — the pattern accepts any of them, and both documents
+    # are held to the same tree so the two languages cannot disagree.
     tree_problems = []
-    for rel in ("floodkit", "agh-plugin", "tests", "scripts", "docs"):
-        actual = 0
-        for base, dirs, files in os.walk(os.path.join(ROOT, rel)):
-            dirs[:] = [d for d in dirs if d != "__pycache__"]
-            actual += len(files)
-        pattern = re.compile(r"(?m)^%s/\s+.*?（(\d+)\s*(?:个文件|份)" % re.escape(rel))
-        found = pattern.search(readme_text)
-        if not found:
-            tree_problems.append("%s/ has no file count in the README tree" % rel)
-        elif int(found.group(1)) != actual:
-            tree_problems.append("%s/: README says %s, tree has %d"
-                                 % (rel, found.group(1), actual))
+    for readme in ("README.md", "README.zh-CN.md"):
+        path = os.path.join(ROOT, readme)
+        if not os.path.exists(path):
+            tree_problems.append("%s is missing" % readme)
+            continue
+        with open(path, encoding="utf-8") as fh:
+            readme_text = fh.read()
+        for rel in ("floodkit", "agh-plugin", "tests", "scripts", "docs"):
+            actual = 0
+            for base, dirs, files in os.walk(os.path.join(ROOT, rel)):
+                dirs[:] = [d for d in dirs if d != "__pycache__"]
+                actual += len(files)
+            pattern = re.compile(
+                r"(?m)^%s/\s+.*?[（(](\d+)\s*(?:个文件|份|files)" % re.escape(rel))
+            found = pattern.search(readme_text)
+            if not found:
+                tree_problems.append("%s: %s/ has no file count in the tree" % (readme, rel))
+            elif int(found.group(1)) != actual:
+                tree_problems.append("%s: %s/ says %s, tree has %d"
+                                     % (readme, rel, found.group(1), actual))
     for problem in tree_problems:
         print("   tree: %s" % problem)
     if tree_problems:
@@ -166,11 +174,10 @@ def main() -> int:
     # everywhere would force a number into documents that never needed one, which is
     # how a document acquires a fact nobody maintains.
     suite_quote = "%d/%d" % (size, size)
-    QUOTES_SUITE = ("README.md", "docs/JUDGE_SUMMARY.md", "docs/DEMO_BRIEF.md",
-                    "docs/HANDOVER.md", "docs/LIMITATIONS.md", "docs/PLAN.md",
-                    "docs/SUBMISSION_RUNBOOK.md")
+    QUOTES_SUITE = ("README.md", "README.zh-CN.md", "docs/JUDGE_SUMMARY.md",
+                    "docs/DEMO_BRIEF.md", "docs/HANDOVER.md", "docs/LIMITATIONS.md",
+                    "docs/PLAN.md", "docs/SUBMISSION_RUNBOOK.md")
 
-    failures = []
     print("headline numbers from %s" % os.path.relpath(PRIMARY_RUN, ROOT))
     for key, value in numbers.items():
         print("   %-22s %s" % (key, value))

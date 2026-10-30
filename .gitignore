@@ -65,3 +65,6 @@ __pycache__/
 *.npy
 *.part
 *.log
+
+# --- local presentation material, not part of the published project ---
+答辩材料/
